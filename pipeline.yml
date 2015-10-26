@@ -1,0 +1,12 @@
+---
+jobs:
+- name: job-hello-world
+  public: true
+  plan:
+  - task: hello-world
+    config:
+      platform: linux
+      image: docker:///busybox
+      run:
+        path: ls
+        # args: [{{vault-token}}]
