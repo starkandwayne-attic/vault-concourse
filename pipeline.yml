@@ -1,12 +1,26 @@
 ---
+resources:
+- name: pipeline-changes
+  type: git
+  source:
+    uri: {{pipeline-git-repo}}
+
 jobs:
 - name: job-hello-world
   public: true
   plan:
+  - aggregate:
+    - get: pipeline-changes
+      trigger: true
+
   - task: hello-world
     config:
+      inputs:
+      - {name: pipeline-changes, path: .}
       platform: linux
       image: docker:///busybox
       run:
-        path: ls
-        # args: [{{vault-token}}]
+        path: ./get-secret
+        args:
+        - {{vault-token}}
+        - 'secret/hello'
