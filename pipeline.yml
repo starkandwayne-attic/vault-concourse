@@ -39,6 +39,7 @@ jobs:
         - {{vault-token}}
         - {{vault-address}}
         - 'secret/hello'
+        - 'excited'
 
 - name: build-docker-image
   public: true
