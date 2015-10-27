@@ -20,7 +20,7 @@ jobs:
       platform: linux
       image: docker:///busybox
       run:
-        path: ./get-secret
+        path: ./bin/get-secret
         args:
         - {{vault-token}}
         - 'secret/hello'
