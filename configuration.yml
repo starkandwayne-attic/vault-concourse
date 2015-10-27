@@ -1,2 +1,6 @@
 ---
 pipeline-git-repo: https://github.com/starkandwayne/vault-concourse.git
+
+docker-hub-username: clutteredraisins
+docker-hub-task-image: clutteredraisins/vault-concourse-pipeline
+docker-hub-gug-image: docker:///clutteredraisins/vault-concourse-pipeline
