@@ -5,6 +5,20 @@ resources:
   source:
     uri: {{pipeline-git-repo}}
 
+- name: git-vault-concourse-docker-image
+  type: git
+  source:
+    uri: {{pipeline-git-repo}}
+    branch: master
+
+- name: docker-image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-hub-task-image}}
+
 jobs:
 - name: job-hello-world
   public: true
@@ -24,3 +38,13 @@ jobs:
         args:
         - {{vault-token}}
         - 'secret/hello'
+
+- name: build-docker-image
+  public: true
+  serial: true
+  plan:
+  - get: git-vault-concourse-docker-image
+    trigger: true
+  - put: docker-image
+    params:
+      build: git-vault-concourse-docker-image/ci

@@ -1,0 +1,25 @@
+---
+jobs:
+- name: build-task-image
+  public: true
+  serial: true
+  plan:
+  - get: pipeline
+    resource: git-pipeline-docker-image
+    trigger: true
+  - get: cf-cli
+    trigger: true
+  - get: spruce-release
+    trigger: true
+  - task: combined
+    config:
+      platform: linux
+      image: docker:///busybox
+      inputs:
+      - {name: pipeline, path: .}
+      - {name: cf-cli, path: pipeline/ci_image/cf-cli}
+      - {name: spruce-release, path: pipeline/ci_image/spruce-release}
+      run: {path: echo}
+  - put: docker-image
+    params:
+      build: combined/pipeline/ci_image
