@@ -37,6 +37,7 @@ jobs:
         path: ./bin/get-secret
         args:
         - {{vault-token}}
+        - {{vault-address}}
         - 'secret/hello'
 
 - name: build-docker-image
