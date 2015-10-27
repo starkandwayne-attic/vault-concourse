@@ -6,7 +6,7 @@ ENV VAULT_VERSION 0.3.1
 RUN apt-get update && apt-get install curl
 
 # Install JQ (https://stedolan.github.io/jq/)
-ADD http://stedolan.github.io/jq/download/linux64/jq /usr/bin/
+ADD http://stedolan.github.io/jq/download/linux64/jq /usr/bin
 RUN chmod 755 /usr/bin/jq
 
 # Install Vault (https://vaultproject.io/)

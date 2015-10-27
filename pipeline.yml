@@ -31,6 +31,7 @@ jobs:
     config:
       inputs:
       - {name: pipeline-changes, path: .}
+      - {name: docker-image, trigger: true}
       platform: linux
       image: {{docker-hub-gug-image}}
       run:
