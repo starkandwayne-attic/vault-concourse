@@ -47,4 +47,4 @@ jobs:
     trigger: true
   - put: docker-image
     params:
-      build: git-vault-concourse-docker-image/ci
+      build: git-vault-concourse-docker-image/ci_image
