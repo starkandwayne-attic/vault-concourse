@@ -32,7 +32,7 @@ jobs:
       inputs:
       - {name: pipeline-changes, path: .}
       platform: linux
-      image: docker:///busybox
+      image: {{docker-hub-gug-image}}
       run:
         path: ./bin/get-secret
         args:

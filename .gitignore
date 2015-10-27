@@ -1,3 +1,4 @@
 vault.yml
 unseal.txt
 .envrc
+.vagrant/*

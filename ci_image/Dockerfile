@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install curl
 ADD http://stedolan.github.io/jq/download/linux64/jq /usr/bin/
 RUN chmod 755 /usr/bin/jq
 
-RUN echo $VAULT_VERSION
-
 # Install Vault (https://vaultproject.io/)
 RUN mkdir -p /tmp/vault && \
     cd /tmp/vault && \
