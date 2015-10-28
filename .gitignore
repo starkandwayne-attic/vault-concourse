@@ -1,4 +1,4 @@
-vault.yml
+credentials.yml
 unseal.txt
 .envrc
 .vagrant/*

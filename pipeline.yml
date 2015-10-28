@@ -4,12 +4,16 @@ resources:
   type: git
   source:
     uri: {{pipeline-git-repo}}
+    paths:
+    - ./*.yml
+    - bin/*
 
 - name: git-docker-image
   type: git
   source:
     uri: {{pipeline-git-repo}}
     branch: master
+    paths: [ci_image/Dockerfile]
 
 - name: docker-image
   type: docker-image
