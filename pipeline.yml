@@ -20,7 +20,7 @@ resources:
     repository: {{docker-hub-task-image}}
 
 jobs:
-- name: job-hello-world
+- name: vault-query-example
   public: true
   plan:
   - aggregate:
@@ -29,7 +29,7 @@ jobs:
     - get: docker-image
       trigger: true
 
-  - task: hello-world
+  - task: query-vault
     config:
       inputs:
       - {name: pipeline-changes, path: .}
