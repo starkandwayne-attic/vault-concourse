@@ -5,7 +5,7 @@ resources:
   source:
     uri: {{pipeline-git-repo}}
 
-- name: git-vault-concourse-docker-image
+- name: git-docker-image
   type: git
   source:
     uri: {{pipeline-git-repo}}
@@ -47,8 +47,8 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: git-vault-concourse-docker-image
+  - get: git-docker-image
     trigger: true
   - put: docker-image
     params:
-      build: git-vault-concourse-docker-image/ci_image
+      build: git-docker-image/ci_image
