@@ -18,5 +18,3 @@ RUN mkdir -p /tmp/vault && \
     unzip vault_${VAULT_VERSION}_linux_amd64.zip && \
     mv vault* /usr/local/bin/ && \
     rm -rf /tmp/vault
-
-RUN vault status
